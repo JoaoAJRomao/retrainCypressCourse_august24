@@ -1,8 +1,11 @@
 /// <reference types="cypress" />
 
 describe("Work with basic elements", () => {
-  it("Text", () => {
+  beforeEach(() => {
     cy.visit("https://www.wcaquino.me/cypress/componentes.html");
+  });
+
+  it("Text", () => {
     cy.get("body").should("contain", "Cuidado");
     // cy.get("body").should("have.text", "Cuidado");
     cy.get("span").should("contain", "Cuidado");
@@ -14,15 +17,20 @@ describe("Work with basic elements", () => {
     );
   });
 
-  it.only("Links", () => {
-    cy.visit("https://www.wcaquino.me/cypress/componentes.html");
-    // cy.get("a").click();
+  it("Links", () => {
     cy.get('[href="#"]').click();
     cy.get("#resultado").should("have.text", "Voltou!");
 
-    cy.reload()
+    cy.reload();
     cy.get("#resultado").should("not.have.text", "Voltou!");
     cy.contains("Voltar").click();
     cy.get("#resultado").should("have.text", "Voltou!");
+  });
+
+  describe("Work with basic elements", () => {
+    before(() => {
+      cy.visit("https://www.wcaquino.me/cypress/frame.html");
+    });
+    it("Extern", () => {});
   });
 });
