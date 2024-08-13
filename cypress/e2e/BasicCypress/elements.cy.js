@@ -67,4 +67,8 @@ describe("Work with basic elements", () => {
       .select("2o grau completo")
       .should("have.value", "2graucomp");
   });
+
+  it.only("Combo multiplo", () => {
+    cy.get('[data-testid="dataEsportes"]').select(["natacao", "Corrida", 'nada']);
+  });
 });
