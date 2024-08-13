@@ -68,7 +68,11 @@ describe("Work with basic elements", () => {
       .should("have.value", "2graucomp");
   });
 
-  it.only("Combo multiplo", () => {
-    cy.get('[data-testid="dataEsportes"]').select(["natacao", "Corrida", 'nada']);
+  it("Multi combo", () => {
+    cy.get('[data-testid="dataEsportes"]').select([
+      "natacao",
+      "Corrida",
+      "nada",
+    ]);
   });
 });
