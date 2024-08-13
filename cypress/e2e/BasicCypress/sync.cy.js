@@ -19,4 +19,10 @@ describe("Waits...", () => {
     cy.get("#novoCampo").should("not.exist");
     cy.get("#novoCampo").should("exist").type("it work");
   });
+
+  it.only("Find feature use", () => {
+    cy.get("#buttonList").click();
+    cy.get("#lista li").find("span").should("contain", "Item 1");
+    cy.get("#lista li span").should("contain", "Item 2");
+  });
 });
